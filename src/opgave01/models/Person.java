@@ -10,6 +10,14 @@ public class Person {
         this.role = role;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
     @Override
     public String toString() {
         return "Person { name: " + name + ", role: " + role + " }";

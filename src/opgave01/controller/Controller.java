@@ -4,6 +4,8 @@ import opgave01.models.Person;
 import opgave01.models.Role;
 import opgave01.storage.EaaaFileStorage;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Controller {
@@ -18,8 +20,14 @@ public class Controller {
      * @param role
      * @return List<Person> where all person has the given role
      */
-    public List<Person> filter(Role role) {
-        return null;
+    public static List<Person> filter(List<Person> persons, Role role) {
+        List<Person> filteredList = new ArrayList<>();
+        for (Person person : persons) {
+            if (person.getRole() == role) {
+                filteredList.add(person);
+            }
+        }
+        return filteredList;
     }
 
     /**
@@ -27,7 +35,7 @@ public class Controller {
      * @return all persons
      */
     public List<Person> getPeople() {
-        return null;
+        return this.eaaaStorage.getPeople();
     }
 
     /**
@@ -35,11 +43,13 @@ public class Controller {
      * @param person
      */
     public void addPerson(Person person) {
+        this.eaaaStorage.addPerson(person);
     }
 
     /**
      * Persists all people
      */
     public void save() {
+        this.eaaaStorage.save();
     }
 }
