@@ -20,6 +20,7 @@ import java.util.List;
 public class Gui extends Application {
     private Controller controller;
 
+
     @Override
     public void start(Stage stage) throws Exception {
         this.controller = new Controller();
@@ -59,7 +60,7 @@ public class Gui extends Application {
         Button filterButton = new Button("Filter");
         filterButton.setOnAction(e -> {
             Role selectedRole = roleComboBox.getValue();
-            List<Person> filteredPersons = Controller.filter(controller.getPeople(), selectedRole);
+            List<Person> filteredPersons = this.controller.filter(selectedRole);
             refreshPersonList(personListView, filteredPersons);
         });
 

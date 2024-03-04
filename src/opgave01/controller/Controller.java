@@ -20,7 +20,8 @@ public class Controller {
      * @param role
      * @return List<Person> where all person has the given role
      */
-    public static List<Person> filter(List<Person> persons, Role role) {
+    public List<Person> filter(Role role) {
+        List<Person> persons = eaaaStorage.getPeople();
         List<Person> filteredList = new ArrayList<>();
         for (Person person : persons) {
             if (person.getRole() == role) {
